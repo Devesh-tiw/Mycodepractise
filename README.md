@@ -2,7 +2,6 @@
 <hr/>
 
 <i>I am practising and learning webdevelpoment ( HTML,CSS and JS )&amp; programming languages like CP,CPP,Java etc... </i>
-<br/>
 <hr/>
 <img src="https://cdn-icons-png.flaticon.com/512/1051/1051277.png" height=100>
 <img src="https://e7.pngegg.com/pngimages/188/673/png-clipart-cascading-style-sheets-css3-bootstrap-valid-blue-angle-thumbnail.png" height=100>
