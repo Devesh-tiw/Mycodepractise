@@ -1,18 +1,22 @@
 import java.util.*;
-public class(){
+public class rev{
 public static void main(String[]args){
-Scanner Sc=new Scanner(System.in);
+Scanner sc=new Scanner(System.in);
 int n;
+int rev[]= new int[20];
 System.out.print("Enter the value of n:");
 n=sc.nextInt();
-int arr[]=new int[];
+int arr[]=new int[20];
 System.out.print("Enter the value of array:");
 for(int i=0;i<n;i++)
-arr[i]=sc.NextInt();
+arr[i]=sc.nextInt();
 
-for(int i=0;i<n;i++)
-System.out.println("The array is "+arr[i]);
-
+for(int i=0;i<n;i++){
+    rev[n-i-1]=arr[i];
+}
+for(int i=0;i<n;i++){ 
+System.out.print(rev[i]);
+}
 
 }
 }
