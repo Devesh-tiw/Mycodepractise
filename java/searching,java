@@ -1,0 +1,33 @@
+import java.util.*;
+public class searching{
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        int n,x;
+        System.out.println("Enter the value size of Array:");
+        n=sc.nextInt();
+        int array[]=new int[50];
+        System.out.println("Enter the value of Array:");
+        for(int i=0;i<n;i++){
+            array[i]=sc.nextInt();
+        }
+        System.out.println("Enter the value size of Array:");
+        x=sc.nextInt();
+        int flag=0 ;
+        for(int i=0;i<n;i++){
+         if (x == array[i]){
+            flag=1;
+           break;
+
+         }}
+         if(flag==1){
+            System.out.print("The number is in the array");
+     
+        }
+         else{
+            System.out.print("The number is not in the array");
+         }
+        
+
+    }
+}
+    

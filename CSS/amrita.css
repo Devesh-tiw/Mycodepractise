@@ -1,0 +1,31 @@
+
+#box1{
+    border-radius:25px;
+    background-color: #caa7d8;
+}
+#box2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width:200px;
+padding-left:50px;
+border-radius:20px;
+border-style:groove
+}
+#box3{
+    background-color:darkgreen;
+    width:250px;
+    text-align:center;
+    border-radius:50px;
+}
+#box4{
+    width:300px;
+    border-style:solid;
+    font-size:20px;
+    color:Black;
+    background-color:salmon;
+    border-radius:10px;
+    margin-left:350px;
+}
+#box5{
+   
+}
+
