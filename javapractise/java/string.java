@@ -1,26 +1,22 @@
-import java.util.*;
+
+
 public class string{
     public static void main(String[]args){
-        Scanner sc=new Scanner(System.in);
-        System.out.println("ENter the first name and last name : ");
-        String firstname=sc.next();
-        String lastname=sc.next();
-       
+        char s [] = {'h','e','l','l','o'};
+       char temp;
+       int left=0;
+       int right=s.length-1;
+        while(left<right){
+            temp= s[left];          
+            s[left]=s[right];
+            s[right] = temp;
+            left++;
+            right--;
+        }
         
-        String Fullname=firstname+" "+lastname;
-        System.out.println(Fullname);
-        System.out.println(Fullname.length());
-        char arr[] = Fullname.toCharArray();
-        char rev[] = new char[20];
-        for(int i=0;i<Fullname.length();i++){
-               rev[Fullname.length()-i-1]=arr[i];
-             
-        }
-        for (int i = 0; i < Fullname.length(); i++) {
-            System.out.print(rev[i]);
-
-        }
-       
+        for(int i=0;i<s.length;i++){ 
+      System.out.print(s[i]);
+      }
     }
-    
 }
+    
