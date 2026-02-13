@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Mycodepractise/CSS/formstyle.css">
+    <title>Forms amrita</title>
+</head>
+
+<body style="background-color:lightblue ; font-family:verdana">
+    <h1 style="text-align:center"><u><i>Form</i></u></h1>
+    <form>
+        </forms action="submit.js" method="post" name="firstform">
+<div id=box1>
+   
+</div>
+<div id=box2>
+
+</div>
+        <fieldset  style="background-color:rgb(205, 151, 208)">
+            <legend><h3>Personal Information</h3></legend>
+            
+                
+                    <label for="fname">First name :</label>
+                    <input type="text" id="fname" name="fname" placeholder="Enter name" autocomplete="on">
+                <br />
+                    <label for="lname"> last name: </label>
+                    <input type="text" id="lname" name="lname" autocomplete="on" placeholder="last name">
+
+                <br />
+                    <label for="pass">password</label>
+                    <input type="password" id="pass" name="Password" autocomplete="on" placeholder="password">
+                <br />
+                    <label for="age">age :</label>
+                    <input type="number" id=num name="Number" placehodler="number" min="18" max="50">
+                    <br />
+               <br/>
+                    <label for="email">Email </label>
+                    <input type="email" placeholder="Enter Email">
+               <br/>
+                <label for="phonenumber">Phone number:</label>
+                <input type="tel" placeholder="444-678-1237" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+         
+        </fieldset>
+        <br />
+        <div id="otherinformation">
+        <label for="gender">Gender</label>
+        <br />
+        <input type="radio" id="gender" name="gender">Male
+        <br />
+        <input type="radio" id="gender:" name="gender">female
+        <br />
+        <input type="radio" id="gender" name="gender">Other
+        <br />
+        <label for="Hobies">Hobies :</label>
+        <br />
+        <input type="checkbox" name="hobies" checked>Singing
+        <br />
+        <input type="checkbox" name="hobies">Reading
+        <br />
+        <input type="checkbox" name="hobies">Writing
+        <br />
+        <input type="checkbox" name="hobies">Dancing
+
+        <br />
+        <br />
+        <label for="color:">color</label>
+        <input type="color" name="color">
+        <br />
+        <br />
+        <label for="DOB">Date</label>
+        <input type="datetime-local" name="date">
+        <br />
+        <br />
+        <label for="Department ">Department: </label>
+        <select id="dept" name="dept" Size="3">
+            <option id="CSE">CSE
+            <option>
+                <optgroup label:CSE>
+                    <option id="AI-ML">AI-ML</option>
+                    <option id="AIE">AIE
+                    <option>
+                    <option id="CCE">CCE
+                    <option>
+        </select>
+        <br />
+        <br />
+        <label for="data">Location :</label>
+        <input list="place">
+        <datalist id="place">
+            <option id="place" value="Hyderabad">
+            <option id="place" value="Lucknow">
+            <option id="place" value="Varansi">
+        </datalist>
+        </div>
+        <br />
+        <br/>
+        <label for="address"> Address:</label>
+        <textarea id="address" rol="10" cols="50">
+</textarea>
+        <br />
+        <input type="button" onclick="alert('Welcome')" value="clickme">
+        <br/>
+        <br />
+        <br />
+        <input type="submit" value="Submit" onclick="alert('Submitted')">
+
+        <form>
+</body>
+
+</html>

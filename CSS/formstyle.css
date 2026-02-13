@@ -1,0 +1,25 @@
+#box1{
+   height:50px;
+   width:50px;
+   background-color: rgb(206, 40, 40,0.6);
+border-radius:50%;
+border-bottom:5px solid black;
+}
+#box2 {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(55, 55, 222, 0.8);
+    margin-left:20px ;
+    margin-top:-30px;
+    border-radius: 50%;
+    border-top:5px solid black;
+}
+#otherinformation{
+    background-color: rgb(55, 55, 222, 0.2);
+    border:solid 1px black;
+    padding:20px;
+    border-radius:50px;
+    border-bottom  :10px solid black;
+    
+   
+}
