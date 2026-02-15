@@ -1,1 +1,1 @@
-i
+int small=0;
