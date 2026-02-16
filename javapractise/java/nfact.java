@@ -1,14 +1,16 @@
+
+
 public class nfact{
-    public static void factorial(int i,int n, int fact){
-    if(i==n){
-        fact*=i;
-        System.out.println(fact);
-        return;
+    public static int factorial(int n){
+    if(n==1||n==0){
+        return 1;
     }
-    fact*=i;
-    factorial(i+1,n,fact);}
-    public static void main(String [] args){
+    int fact = factorial(n-1);
+    int factmul= n *fact;
+              return factmul;}
+        public static void main(String [] args){
     
-    factorial(1,5,1);
+    int ans=factorial(5);
+    System.out.println(ans);
     }
     }
