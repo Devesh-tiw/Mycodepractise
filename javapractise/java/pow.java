@@ -1,9 +1,13 @@
 
-class Solution {
+import java.util.*;
+public class pow{
 
-    public double myPow(double x, int n) {
-
-        long power = n;  
+    public static void main(String[]args) {
+   Scanner sc =new Scanner (System.in);
+   System.out.println("Enter the value of n :");
+   double n=sc.nextInt();
+   double x=2;
+        double power = n;  
         if (power < 0) {
             x = 1 / x;    
             power = -power;
@@ -16,6 +20,6 @@ class Solution {
             power--;
         }
 
-        return result;
+        System.out.println(result);
     }
 }
