@@ -1,15 +1,16 @@
 public class climb{
-    public static int fact(int n){
+    public int climbsay(int n){
         
-        if(n==0||n==1 ){
+        if(n==0||n==1){
             return 1;
         }
        
-            return n*fact(n-1);}
+            return climbsay(n-1)+climbsay(n-2);}
  public static void main(String[]args){
+    climb c=new climb();
     int n=3;
     int r=1;
-    int pattern=(fact(n)/fact(n-r));
+    int pattern=c.climbsay(n);
     System.out.println(pattern);
  }
 }
