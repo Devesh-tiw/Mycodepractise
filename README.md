@@ -8,7 +8,7 @@
 <img src="https://cdn.iconscout.com/icon/free/png-256/free-java-logo-icon-svg-download-png-1720088.png?f=webp" height=100>
 
 
-<img src="C:\Users\deves\Downloads\3d-python-programming-language-logo-free-png-removebg-preview.png" height=100>
+<img src="https://static.vecteezy.com/system/resources/previews/048/332/144/non_2x/python-icon-transparent-background-free-png.png" height=100>
 <img src="https://i.redd.it/31b2ii8hchi31.jpg" height=100>
 <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png" height=100>
 <hr/>
