@@ -8,13 +8,13 @@ public class consecutivepyramide{
         int n;
         System.out.print("Enter the value of n :");
         n = sc.nextInt();
-        for (int i = 0; i <=n; i++) {
-            for (int j = 1; j <=n-i; j++) {
+        for (int j = 0; j <=n; j++) {
+            for (int i = 1; i <=n-j; i++) {
                 System.out.print(" ");
             }
-            for (int k = 0; k <i; k++) {
+            for (int k = 0; k <j; k++) {
               
-                    System.out.print(" "+i); 
+                    System.out.print(" "+j); 
             }
             
             System.out.print("\n ");
