@@ -7,10 +7,10 @@ public class cancatenation{
      String Name=sc.next();
      System.out.print("Enter the Surname ");
      String Surname =sc.next();
-     String concatenation=(Name+" " +Surname);
-     System.out.println(concatenation);
-     for (int i = 0; i < concatenation.length(); i++) {
-        System.out.println(concatenation.charAt(i));
+     String Adding =(Name+" " +Surname);
+     System.out.println(Adding);
+     for (int i = 0; i < Adding.length(); i++) {
+        System.out.println(Adding.charAt(i));
          
      }
  }
