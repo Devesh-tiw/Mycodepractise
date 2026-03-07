@@ -1,37 +1,40 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# 1. Create a 3x3 matrix
-# Let's use numbers that are easy to see in positive 3D space
-A = np.array([[2, 0, 1],
-              [3, 2, 1],
-              [1, 1, 2]])
+# 1. Create a messy matrix, then extract its Orthogonal "bones" (Q)
+A = np.array([[12, -51,   4],
+              [ 6, 167, -68],
+              [-4,  24, -41]])
 
-# 2. Extract the columns as individual 3D vectors
-vector_1 = A[:, 0]  # The first column: [2, 0, 1]
-vector_2 = A[:, 1]  # The second column: [0, 2, 1]
-vector_3 = A[:, 2]  # The third column: [1, 1, 2]
+Q, R = np.linalg.qr(A)
+
+# 2. Extract the orthogonal columns from Q
+v1 = Q[:, 0]
+v2 = Q[:, 1]
+v3 = Q[:, 2]
 
 # 3. Set up the 3D graph
 fig = plt.figure(figsize=(8, 8))
-ax = fig.add_subplot(111, projection='3d') # This turns on 3D mode!
+ax = fig.add_subplot(111, projection='3d')
 
-# 4. Draw the arrows using ax.quiver
-# In 3D, quiver needs starting coordinates (0,0,0) and ending directions (our vectors)
-ax.quiver(0, 0, 0, vector_1[0], vector_1[1], vector_1[2], color='red', label='Col 1 (2,0,1)', arrow_length_ratio=0.1)
-ax.quiver(0, 0, 0, vector_2[0], vector_2[1], vector_2[2], color='blue', label='Col 2 (0,2,1)', arrow_length_ratio=0.1)
-ax.quiver(0, 0, 0, vector_3[0], vector_3[1], vector_3[2], color='green', label='Col 3 (1,1,2)', arrow_length_ratio=0.1)
+# 4. Draw the arrows! 
+ax.quiver(0, 0, 0, v1[0], v1[1], v1[2], color='red', label='Orthogonal Col 1', arrow_length_ratio=0.1)
+ax.quiver(0, 0, 0, v2[0], v2[1], v2[2], color='blue', label='Orthogonal Col 2', arrow_length_ratio=0.1)
+ax.quiver(0, 0, 0, v3[0], v3[1], v3[2], color='green', label='Orthogonal Col 3', arrow_length_ratio=0.1)
 
-# 5. Format the graph limits so we can see the arrows clearly.
-ax.set_xlim([0, 3])
-ax.set_ylim([0, 3])
-ax.set_zlim([0, 3])
+# 5. Format the graph limits to a 1x1x1 box (since orthogonal vectors have length 1)
+ax.set_xlim([-1, 1])
+ax.set_ylim([-1, 1])
+ax.set_zlim([-1, 1])
+
+# CRITICAL: Force the 3D box to be a perfect cube so 90 degrees actually looks like 90 degrees!
+ax.set_box_aspect([1, 1, 1])
 
 ax.set_xlabel('X Axis')
 ax.set_ylabel('Y Axis')
 ax.set_zlabel('Z Axis')
-plt.title("Visualizing 3x3 Matrix Columns in 3D Space")
+plt.title("Visualizing an Orthogonal Matrix (Perfect 90° Angles)")
 plt.legend()
 
-# 6. Show the graph on your screen!
+# 6. Show the graph!
 plt.show()
