@@ -41,6 +41,23 @@ display: flex; flex-direction: column; height: 100%;align-items: center; justify
     width: 120px;
     border: 2px solid whitesmoke;
 }
+#Toys{
+    float: left;
+    height: 100px;
+    width: 120px;
+    border: 2px solid whitesmoke;
+}
+#electronics {
+    float: left;
+    height: 100px;
+    width: 120px;
+    border: 2px solid whitesmoke;
+}
+#boxes{
+   display:inline;
+   position:relative;
+   top:500px;
 
+}
 
 
