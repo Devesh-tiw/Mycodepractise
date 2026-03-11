@@ -1,5 +1,5 @@
 *{
-color :white;
+color :rgb(0, 0, 0);
 }
 #back{
     width:100%;
@@ -48,6 +48,7 @@ display: flex; flex-direction: column; height: 100%;align-items: center; justify
     border: 2px solid whitesmoke;
 }
 #electronics {
+
     float: left;
     height: 100px;
     width: 120px;
