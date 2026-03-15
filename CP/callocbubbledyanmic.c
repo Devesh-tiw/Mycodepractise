@@ -1,6 +1,5 @@
-// This is the Malloc uses in c we are taking stdlib.h which is conntwning the malloc so malloc is
-//  good but we shoud use garbage collect for Malloc just like we are using free();
-//  So now we are using Calloc .
+// This is the Calloc uses in c we are taking stdlib.h which is Containing the calloc so calloc is
+//  good Here we have initialized garbage collector.
 
 #include <stdio.h>
 #include <stdlib.h>
