@@ -7,7 +7,7 @@
 int main()
 {
     int *arr, n, i, j;
-    printf("Enter the alue of n ");
+    printf("Enter the value of n ");
     scanf("%d", &n);
     arr = (int *)calloc(n, sizeof(int));
     if (arr == NULL)
