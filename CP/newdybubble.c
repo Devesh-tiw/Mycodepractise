@@ -12,7 +12,7 @@ int main()
         return 1;
     }
     printf("Enter the value of array ");
-    for (i = 0; i < n; i++)
+    for (i = 0; i < n ; i++)
         scanf("%d", arr + i);
 
     for (j = 0; j < n; j++)
