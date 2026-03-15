@@ -1,6 +1,6 @@
-//This is the Malloc uses in c we are taking stdlib.h which is conntwning the malloc so malloc is
-// good but we shoud use garbage collect for Malloc just like we are using free();
-// So now we are using Calloc .
+// This is the Malloc uses in c we are taking stdlib.h which is conntwning the malloc so malloc is
+//  good but we shoud use garbage collect for Malloc just like we are using free();
+//  So now we are using Calloc .
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,7 +9,7 @@ int main()
     int *arr, n, i, j;
     printf("Enter the alue of n ");
     scanf("%d", &n);
-    arr = (int *)malloc(n * sizeof(int));
+    arr = (int *)calloc(n, sizeof(int));
     if (arr == NULL)
     {
         printf("Memory allocation is failed ");
@@ -33,5 +33,5 @@ int main()
     }
     for (i = 0; i < n; i++)
         printf("%d", arr[i]);
-        free(arr);
+    free(arr);
 }
