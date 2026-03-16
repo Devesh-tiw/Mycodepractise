@@ -10,7 +10,7 @@ void createNodeList()
     
     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
     int data;
-    printf("enter data");
+    printf("enter data :");
     scanf("%d", &data);
     if (!newNode)
     {
@@ -29,10 +29,29 @@ void createNodeList()
         newNode->next = head;
         head = newNode;
     }
-    printf("%d",newNode->data);
+    printf(" %d \n",newNode->data);
+}
+void displayList()
+{
+    struct Node *temp = head;
+
+    printf("Your Linked List: ");
+
+    while (temp != NULL)
+    {
+        printf("%d ", temp->data); 
+        temp = temp->next;         
+    }
+    printf("\n"); 
 }
 
 int main(){
  createNodeList();
-
+ createNodeList();
+ createNodeList();
+ displayList() ;
+ if (head != NULL)
+ {
+     printf("yours Node is successfully genrated ");
+ }
 }
