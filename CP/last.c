@@ -9,7 +9,7 @@ struct Node
 
 struct Node *head = NULL;
 
-void createnode()
+void createnode(int value)
 {
     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
 
@@ -20,7 +20,7 @@ void createnode()
     }
     else if (head == NULL)
     {
-        newNode->data = 5;
+        newNode->data = value;
         newNode->next = NULL;
         head = newNode;
     }
@@ -82,7 +82,7 @@ void print()
 
 int main()
 {
-    createnode(); 
+    createnode(10); 
     lastinsert();
     lastinsert();
     lastinsert();
