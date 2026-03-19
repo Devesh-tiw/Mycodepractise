@@ -4,60 +4,97 @@
 struct Node
 {
     int data;
-    struct Node *next; // Fixed typo: 'NOde' to 'Node'
+    struct Node *next;
 };
 
-// 1. Move 'head' outside the functions so it is Global.
-// This allows the list to persist across different function calls.
 struct Node *head = NULL;
 
-void insertend(int value)
+void createnode()
 {
     struct Node *newnode = (struct Node *)malloc(sizeof(struct Node));
-
-    // 2. Check for memory allocation failure BEFORE assigning values.
     if (newnode == NULL)
     {
-        printf("Memory Allocation is not done! ");
+        printf("Memory Allocation is not done!\n");
         exit(1);
     }
 
-    newnode->data = value;
+    int data;
+    printf("Enter data: ");
+    // 1. FIX: Added the '&' before data. scanf needs the memory address!
+    scanf("%d", &data);
+
+    newnode->data = data;
     newnode->next = NULL;
 
-    // 3. If the list is empty, make the new node the head.
     if (head == NULL)
     {
         head = newnode;
-        return; // Exit the function early
+    }
+    else
+    {
+        // 2. FIX: Properly traverse to the end to attach the new node
+        struct Node *temp = head;
+        while (temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+        temp->next = newnode;
+    }
+}
+
+// I renamed this to 'insertAtPosition' since that matches what the logic is trying to do!
+void insertAtPosition(int value, int pos)
+{
+    struct Node *newnode = (struct Node *)malloc(sizeof(struct Node));
+    if (newnode == NULL)
+    {
+        printf("Memory Allocation is not done!\n");
+        exit(1);
+    }
+    newnode->data = value;
+
+    // 3. FIX: Handle inserting at the very beginning (position 1)
+    if (pos == 1 || head == NULL)
+    {
+        newnode->next = head;
+        head = newnode;
+        return;
     }
 
-    // 4. Otherwise, traverse to the end of the list.
     struct Node *temp = head;
-    while (temp->next != NULL)
+
+    // 4. FIX: Use a counter loop to find the right position, not a pointer comparison.
+    // We stop at 'pos - 1' because we need to attach the new node to the node just *before* it.
+    for (int i = 1; i < pos - 1 && temp != NULL; i++)
     {
         temp = temp->next;
     }
-    // Attach the new node at the end
-    temp->next = newnode;
+
+    // If temp is NULL here, the user asked for a position larger than the list size
+    if (temp == NULL)
+    {
+        printf("\nPosition %d is out of bounds!\n", pos);
+        free(newnode); // Prevent memory leak
+    }
+    else
+    {
+        // Splice the new node into the list
+        newnode->next = temp->next;
+        temp->next = newnode;
+    }
 }
 
 void print()
 {
     struct Node *temp = head;
-
-    // 5. Traverse until temp is NULL to ensure the last node prints.
     while (temp != NULL)
     {
-        // Print the data, not the address of the next pointer.
         printf("%d -> ", temp->data);
-        // 6. Move to the next node (prevents an infinite loop).
         temp = temp->next;
     }
     printf("NULL\n");
 }
 
-// 7. Clarified function to delete from the beginning (head)
 void deleteHead()
 {
     if (head == NULL)
@@ -65,24 +102,34 @@ void deleteHead()
         printf("List is already empty.\n");
         return;
     }
-
     struct Node *temp = head;
-    head = head->next; // Shift the head pointer to the second node
-    free(temp);        // Free the memory of the old first node
+    head = head->next;
+    free(temp);
 }
 
 int main()
 {
-    // I changed the numbers slightly so you can see the order they print in!
-    insertend(5);
-    insertend(10);
-    insertend(15);
+    // Let's create a base list of 3 items (you can type 10, 20, 30)
+    printf("--- Create Initial List ---\n");
+    createnode();
+    createnode();
+    createnode();
 
-    printf("List after insertion: ");
+    printf("\nInitial List: ");
     print();
 
-    printf("List after deleting head: ");
+    // Now insert at specific positions
+    printf("\nInserting 5 at position 2...\n");
+    insertAtPosition(5, 2);
+    print();
+
+    printf("\nInserting 99 at position 4...\n");
+    insertAtPosition(99, 4);
+    print();
+
+    printf("\nList after deleting head: ");
     deleteHead();
     print();
+
     return 0;
 }
