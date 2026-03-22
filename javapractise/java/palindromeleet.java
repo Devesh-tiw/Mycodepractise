@@ -19,7 +19,6 @@ public class palindromeleet {
                 flag = 1;
             }
         }
-        
         if (flag == 1) {
             System.out.println("false");
         } else {
