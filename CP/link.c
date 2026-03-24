@@ -149,22 +149,62 @@ void display_node(){
 
      
  }
- void deletespecific(int value){
-     struct Node *temp =head;
-     struct Node *temp2 = NULL;
+ void deletespecific(int value)
+ {
+     struct Node *temp = head;
+     struct Node *prev = NULL;
+
      if (head == NULL)
      {
-         printf("don,t do anything");
+         printf("Nothing to delete\n");
+         return;
      }
-    else{
-        while(temp->data==value){
-            temp2=temp;
-              temp=temp->next;
-        }
-        temp2->next=NULL;
-        
-    }
-    free(temp);
+
+     // if first node matches
+     if (head->data == value)
+     {
+         head = head->next;
+         free(temp);
+         return;
+     }
+
+     // search node
+     while (temp != NULL && temp->data != value)
+     {
+         prev = temp;
+         temp = temp->next;
+     }
+
+     if (temp == NULL)
+     {
+         printf("Value not found\n");
+         return;
+     }
+
+     prev->next = temp->next;
+     free(temp);
+ }
+ void reverse()
+ {
+     struct Node *curr = head;
+     struct Node *prev = NULL;
+     struct Node *next = NULL;
+
+     if (head == NULL)
+     {
+         printf("No need to reverse\n");
+         return;
+     }
+
+     while (curr != NULL)
+     {
+         next = curr->next; // store next node
+         curr->next = prev; // reverse link
+         prev = curr;       // move prev
+         curr = next;       // move curr
+     }
+
+     head = prev; // new head
  }
 int main(){
 create_node(5);
@@ -176,5 +216,6 @@ insertlast(6);
  deletebeg();
  deletelast();
  deletespecific(4);
+ reverse();
      display_node();
 }
