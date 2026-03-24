@@ -13,6 +13,7 @@ while True:
     # 3. Take a picture (frame) from the webcam
     success, frame = cap.read()
     
+    
     if success:
         # 4. Give the picture to the AI so it can find the objects
         results = model(frame)
