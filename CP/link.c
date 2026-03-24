@@ -146,16 +146,35 @@ void display_node(){
          temp2->next= NULL;
      }
      free(temp);
+
      
+ }
+ void deletespecific(int value){
+     struct Node *temp =head;
+     struct Node *temp2 = NULL;
+     if (head == NULL)
+     {
+         printf("don,t do anything");
+     }
+    else{
+        while(temp->data==value){
+            temp2=temp;
+              temp=temp->next;
+        }
+        temp2->next=NULL;
+        
+    }
+    free(temp);
  }
 int main(){
 create_node(5);
-create_node(5);
+create_node(4);
 create_node(5);
 insert(7);
 insertlast(6);
  insertspecific(1,2);
  deletebeg();
  deletelast();
+ deletespecific(4);
      display_node();
 }
