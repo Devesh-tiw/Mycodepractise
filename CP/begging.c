@@ -36,6 +36,7 @@ void beginningadd()
 {
     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
 
+    
     if (!newNode)
     {
         printf("Memory allocation failed!\n");

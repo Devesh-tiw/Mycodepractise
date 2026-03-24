@@ -4,10 +4,10 @@ struct Node{
     int data;
     struct Node *next;
 };
-struct Node *head;
+struct Node *head=NULL;
+
 void create_node(int value){
    
-    head =NULL;
 
    struct Node * newnode = (struct Node *)malloc(sizeof(struct Node));
    if (newnode == NULL)
@@ -26,7 +26,7 @@ void create_node(int value){
         newnode->next = head;
         head = newnode;
     }
-    printf(" %d ->", newnode->data);
+  
    
 }
 void display_node(){
@@ -38,17 +38,54 @@ void display_node(){
     }
  else{
     while(temp!=NULL){
-        printf("%d ", temp->data);
+        printf("%d -> ", temp->data);
         temp = temp->next;
     }
     printf("NULL");
  }
-
 }
+ void insert(int value){
+     struct Node *newnode = (struct Node *)malloc(sizeof(struct Node));
+     if (newnode == NULL)
+     {
+         printf("Memory allocation is failed ");
+         exit(0);
+     }
+     newnode->data=value;
+     
+     if(head==NULL){
+         newnode->next = NULL;
+         head = newnode;
+     }
+     else{
+        newnode ->next=head;
+        head=newnode;
+     }
+ }
+ void insertlast(int value){
+    struct Node* temp=head;
+    struct Node* newnode=(struct Node*)malloc(sizeof(struct Node));
+    newnode->data=value;
+    newnode->next=NULL;
+
+    if(head==NULL){
+        head = newnode;
+
+    }
+    else{
+        while(temp->next!=NULL){
+            temp=temp->next;
+        }
+        temp->next=newnode;
+    }
+ }
+
 
 int main(){
 create_node(5);
 create_node(5);
 create_node(5);
+insert(7);
+insertlast(6);
 display_node();
 }

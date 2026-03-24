@@ -49,6 +49,7 @@ void deletebeg()
     else
     {
         if (head->next == NULL)
+        
         {
             head = NULL;
             free(temp);
