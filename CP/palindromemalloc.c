@@ -17,7 +17,18 @@ int main(){
     for (int i = 0; i < n; i++){ 
         printf("%d ",arr[i]);}
         int new_size;
-    
+        printf("\n Enter the value of n_size :");
+        scanf("%d", &new_size);
+        arr = (int *)realloc(arr, new_size * sizeof(int));
+        for (int i = n; i < new_size; i++)
+        {
+            scanf("%d", &arr[i]);
+        }
+    for (int i = 0; i < new_size; i++)
+    {
+        printf("%d,", arr[i]);
+    }
+
         free(arr);
 return 0;
 }
