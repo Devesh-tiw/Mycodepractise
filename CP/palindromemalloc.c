@@ -3,6 +3,7 @@
 int main(){
     int *arr;
     int n;
+ 
     printf("Enter the value of n :");
     scanf("%d",&n);
     arr=(int*)malloc(n*sizeof(int));
@@ -28,7 +29,26 @@ int main(){
     {
         printf("%d,", arr[i]);
     }
-
-        free(arr);
-return 0;
-}
+    int rev[new_size];
+    for(int i=0;i<new_size;i++){
+            rev[new_size-1-i]=arr[i];
+    }
+    int flag=0;
+    for (int i = 0; i < new_size; i++)
+    {
+        if (rev[i ] != arr[i]){
+        flag=1;
+        break;
+        }
+    }
+    if (flag == 1)
+    {
+        printf("this is not palindrome ");
+    }
+    else
+    {
+        printf("\n this is  the palindrome");
+    }
+            free(arr);
+        return 0;
+    }
