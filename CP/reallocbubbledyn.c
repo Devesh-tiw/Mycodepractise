@@ -27,7 +27,7 @@ int main()
     printf("\nAdd %d new elements:", new_size - n);
    for (i = n; i < new_size; i++)
                                        scanf("%d", array + i);
-    printf("\n Aafter realloc and new element added, the entire array elements are\t");
+    printf("\n After realloc and new element added, the entire array elements are\t");
     for (i = 0; i < new_size; i++)
         printf("%d\t", *(array + i));
 
