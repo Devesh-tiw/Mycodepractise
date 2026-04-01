@@ -11,6 +11,7 @@ void Employee_detail(String n,int BS,int D,int H){
     Basic_Salary=BS;
     DA=D;
     HRA=H;
-   
+    total_salary=BS+D+H;
+    System.out.println("EMPLOYEE: "+name+" Basic Salary: "+Basic_Salary+" DA: "+ DA +" HRA "+HRA+"Total");
 }
 }
