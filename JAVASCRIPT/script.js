@@ -21,14 +21,25 @@ else{
 // for(let i=0;i<10;i++){
 //     console.log("dear");
 // }
-const Student={
- Name:"Devesh",
- address:"India",
- post:"AI researcher",
- favno:5,
+// const Student={
+//  Name:"Devesh",
+//  address:"India",
+//  post:"AI researcher",
+//  favno:5,
 
 
+// }
+// for(let key in Student ){
+//     console.log("key is ",key,"value is",Student[key]);
+// }
+// let i=0;
+// while(i<=100){
+// console.log(i);
+// i=i+2;
+// }
+let userinput=prompt("Enter the  value");
+let guess=25;
+while(userinput!= guess){
+userinput=prompt("you entered wrong guess");
 }
-for(let key in Student ){
-    console.log("key is ",key);
-}
+console.log("Congrats! you doned ")
