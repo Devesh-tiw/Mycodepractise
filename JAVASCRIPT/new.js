@@ -6,3 +6,4 @@ const SHraddhaProfile={
     link:"@ShraddhaKhapra",
     About:"Enterprenour Ex-Microsoft,Ex-DRDO,Current Educator",
 }
+console.log(typeof SHraddhaProfile.Name);
