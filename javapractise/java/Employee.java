@@ -8,7 +8,6 @@ int DA;
 int HRA;
 void Employee_detail(String n,int D,int H){
     name =n;
-   
     DA=D;
     HRA=H;
     total_salary=Basic_Salary+D+H;
