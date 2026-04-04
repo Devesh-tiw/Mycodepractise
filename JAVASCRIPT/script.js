@@ -48,16 +48,36 @@ else{
 // let Fullname=prompt("Enter full name to make user name ");
 // let result=`Your Username is @${Fullname}${Fullname.length}`;
 // console.log(result);
-let n =Number(prompt("Enter the value of n"));
+
+// let n =Number(prompt("Enter the value of n"));
+// let arr = [];
+
+// for (let i = 0; i < n; i++) {
+//     arr[i] = prompt("Enter value of element " + i);
+// }
+// for (let i = 0; i < n; i++) {
+//     console.log(arr[i]);
+// }
+// for(let number of arr){
+//     console.log(number);
+// }
+
+let n = Number(prompt("Enter the Number of Students"));
 let arr = [];
+let sum = 0;
 
 for (let i = 0; i < n; i++) {
-    arr[i] = prompt("Enter value of element " + i);
+    arr[i] = Number(prompt("Enter Marks Roll No. of Student " + i));
 }
 
 for (let i = 0; i < n; i++) {
     console.log(arr[i]);
+    sum += arr[i];
 }
-for(let number of arr){
-    console.log(number);
-}
+
+let average = sum / arr.length;
+
+console.log("Average:", average);
+
+ 
+
