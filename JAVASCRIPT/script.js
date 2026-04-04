@@ -79,17 +79,18 @@ else{
 
 // console.log("Average:", average);
 
-let sumdiscount=0;
-let sum1=0;
-let price =[];
-let n= Number(prompt("Enter the numbe of itmes : "));
-for(let i=0;i<n;i++){
-    price[i]=Number(prompt(`Enter the price of item ${i}   `));
-sumdiscount+=(price[i]*0.1);
-sum1+=price[i];
-}
-let totalAmmount=sum1-sumdiscount;
-console.log("After 10 % reduction the Ammount is :",totalAmmount);
+// let sumdiscount=0;
+// let sum1=0;
+// let price =[];
+// let n= Number(prompt("Enter the numbe of itmes : "));
+// for(let i=0;i<n;i++){
+//     price[i]=Number(prompt(`Enter the price of item ${i}   `));
+// sumdiscount+=(price[i]*0.1);
+// sum1+=price[i];
+// }
+// let totalAmmount=sum1-sumdiscount;
+// console.log("After 10 % reduction the Ammount is :",totalAmmount);
 
  
-
+let car=["valvo","Alto","Bugati","Mercedis","BMW"];
+car.push("Amazon")
