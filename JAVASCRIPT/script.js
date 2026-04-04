@@ -62,22 +62,34 @@ else{
 //     console.log(number);
 // }
 
-let n = Number(prompt("Enter the Number of Students"));
-let arr = [];
-let sum = 0;
+// let n = Number(prompt("Enter the Number of Students"));
+// let arr = [];
+// let sum = 0;
 
-for (let i = 0; i < n; i++) {
-    arr[i] = Number(prompt("Enter Marks Roll No. of Student " + i));
+// for (let i = 0; i < n; i++) {
+//     arr[i] = Number(prompt("Enter Marks Roll No. of Student " + i));
+// }
+
+// for (let i = 0; i < n; i++) {
+//     console.log(arr[i]);
+//     sum += arr[i];
+// }
+
+// let average = sum / arr.length;
+
+// console.log("Average:", average);
+
+let sumdiscount=0;
+let sum1=0;
+let price =[];
+let n= Number(prompt("Enter the numbe of itmes : "));
+for(let i=0;i<n;i++){
+    price[i]=Number(prompt(`Enter the price of item ${i}   `));
+sumdiscount+=(price[i]*0.1);
+sum1+=price[i];
 }
-
-for (let i = 0; i < n; i++) {
-    console.log(arr[i]);
-    sum += arr[i];
-}
-
-let average = sum / arr.length;
-
-console.log("Average:", average);
+let totalAmmount=sum1-sumdiscount;
+console.log("After 10 % reduction the Ammount is :",totalAmmount);
 
  
 
