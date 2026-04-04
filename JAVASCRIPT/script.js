@@ -37,9 +37,11 @@ else{
 // console.log(i);
 // i=i+2;
 // }
-let userinput=prompt("Enter the  value");
-let guess=25;
-while(userinput!= guess){
-userinput=prompt("you entered wrong guess");
-}
-console.log("Congrats! you doned ")
+// let userinput=prompt("Enter the  value");
+// let guess=25;
+// while(userinput!= guess){
+// userinput=prompt("you entered wrong guess");
+// }
+// console.log("Congrats! you doned ")
+let Fullname=prompt("Enter full name to make user name ");
+let result=`Your Username is @ ${Fullname}${Fullname.length}`;
