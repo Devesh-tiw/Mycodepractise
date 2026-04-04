@@ -37,11 +37,27 @@ else{
 // console.log(i);
 // i=i+2;
 // }
+
 // let userinput=prompt("Enter the  value");
 // let guess=25;
 // while(userinput!= guess){
 // userinput=prompt("you entered wrong guess");
 // }
+
 // console.log("Congrats! you doned ")
-let Fullname=prompt("Enter full name to make user name ");
-let result=`Your Username is @ ${Fullname}${Fullname.length}`;
+// let Fullname=prompt("Enter full name to make user name ");
+// let result=`Your Username is @${Fullname}${Fullname.length}`;
+// console.log(result);
+let n =Number(prompt("Enter the value of n"));
+let arr = [];
+
+for (let i = 0; i < n; i++) {
+    arr[i] = prompt("Enter value of element " + i);
+}
+
+for (let i = 0; i < n; i++) {
+    console.log(arr[i]);
+}
+for(let number of arr){
+    console.log(number);
+}
