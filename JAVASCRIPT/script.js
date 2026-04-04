@@ -92,5 +92,12 @@ else{
 // console.log("After 10 % reduction the Ammount is :",totalAmmount);
 
  
-let car=["valvo","Alto","Bugati","Mercedis","BMW"];
-car.push("Amazon")
+// let car=["valvo","Alto","Bugati","Mercedis","BMW"];
+// car.push("Amazon")
+// let x= 0;
+// let y=0;
+// const mul =(x,y) => {
+//     return x*y;
+// }
+// mul(x,y);
+
