@@ -100,4 +100,12 @@ else{
 //     return x*y;
 // }
 // mul(x,y);
-
+Fullname =prompt("Enter the name : ")
+function vowel(Fullname){
+    for(let i in Fullname){ 
+if (Fullname.charAt(i)=='a'||Fullname.charAt(i)=='e'||Fullname.charAt(i)=='i'||Fullname.charAt(i)=='o'||Fullname.charAt(i)=='u') {
+console.log(Fullname.charAt(i));
+}
+    }
+}
+vowel(Fullname);
