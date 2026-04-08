@@ -12,5 +12,5 @@ else{
         UNIname:"Amrita",
     }
     for(let key in Student){
-console.log(key);
+console.log(key +"---"+Student[key]);
     }
