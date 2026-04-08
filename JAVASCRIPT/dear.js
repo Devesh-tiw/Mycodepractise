@@ -6,3 +6,11 @@ if (i<10){
 else{
     console.log("THis is devesh")
 }
+ const Student={
+        Rollno :25106,
+        Name:"Devesh",
+        UNIname:"Amrita",
+    }
+    for(let key in Student){
+console.log(key);
+    }
