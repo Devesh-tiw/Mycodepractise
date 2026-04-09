@@ -28,4 +28,4 @@ def analyze_url_image(url, k_value):
 
 # The image you provided
 url = "https://www.shutterstock.com/image-photo/sun-sets-behind-mountain-ranges-600nw-2479236003.jpg"
-analyze_url_image(url, k_value=2)
+analyze_url_image(url, k_value=20)
