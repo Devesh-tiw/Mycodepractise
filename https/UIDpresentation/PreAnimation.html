@@ -5,49 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        div {
-            width: 100px;
-            height: 100px;
-            background: red;
-            position: relative;
-            animation-name: example;
-            animation-duration: 3s;
-            animation-fill-mode: forwards;
+        
+        #animation{
+        text-align:center;
+            border:2px;
+            height:400px;
+            width:20px;
+            background-color:orange;
+            margin:200px;
+
+
         }
-    
-        @keyframes example {
-            from {
-                top: 0px;
+        #animation1{
+
+            border:2px;
+            height:200px;
+            width:200px;
+            background-color:orange;
+
+        }
+        #animation1:hover{
+      
+            animation-name:don;
+            animation-duration:0.8s;
+            animation-iteration-count:5;
+            animation-direction:alternate;
+            animation-timing-function: ease-in-out;
+
+        }
+        #animation:hover{
+            animation-name:ani;
+            
+            animation-duration:1ms;
+            animation-iteration-count:infinite;
+
+        }
+        @keyframes ani{
+            from{
+                transform:rotate(0);
             }
-    
-            to {
-                top: 200px;
-                background-color: blue;
+            to{
+                transform:rotate(360deg);
             }
         }
-        div {
- width: 100px;
- height: 100px;
-background: red;
- position: relative;
- animation-name: example;
- animation-duration: 3s;
- animation-delay: 2s;
- animation-fill-mode: both;
-}
-div {
- width: 100px;
- height: 100px;
- background: red;
- position: relative;
- animation-name: example;
- animation-duration: 3s;
- animation-delay: 2s;
-animation-fill-mode: backwards;
-}
+        @keyframes don{
+ from{
+                transform:translateX(0px);
+
+            }
+            to{
+                transform:translateX(800px);
+            }
+        }
     </style>
 </head>
 <body>
-    <div></div>
+    <h1>Animation 1 </h1>
+    <div id="animation"></div>
+    <h1>Animation 2 </h1>
+    <div id="animation1"></div>
 </body>
 </html>
