@@ -22,13 +22,14 @@
             height:200px;
             width:200px;
             background-color:orange;
+            
 
         }
         #animation1:hover{
       
             animation-name:don;
-            animation-duration:0.8s;
-            animation-iteration-count:5;
+            animation-duration:2s;
+            animation-iteration-count:infinite;
             animation-direction:alternate;
             animation-timing-function: ease-in-out;
 
@@ -49,12 +50,22 @@
             }
         }
         @keyframes don{
- from{
+ 0%{
                 transform:translateX(0px);
 
             }
-            to{
-                transform:translateX(800px);
+            25%{
+                transform:translateX(400px);
+            }
+             50%{
+                transform:translateY(400px);
+            }
+             75%{
+                transform:translateX(-400px);
+            }
+          
+             100%{
+                transform:translateY(-400px);
             }
         }
     </style>
@@ -63,6 +74,8 @@
     <h1>Animation 1 </h1>
     <div id="animation"></div>
     <h1>Animation 2 </h1>
+    <div style="height:500px;width:1000px;display:flex;justify-content:center">
     <div id="animation1"></div>
+    </div>
 </body>
 </html>
