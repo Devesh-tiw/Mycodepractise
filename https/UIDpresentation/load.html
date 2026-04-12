@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>load</title>
+    <style>
+        #load{
+            border:4px solid black;
+            border-right:4px solid transparent;
+            border-bottom:4px solid transparent;
+
+            border-radius:50%;
+            height:200px;
+            width:200px;
+            margin:100px;
+            position:relative;
+            animation-name:loading;
+            animation-duration:2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            animation-delay:2s;
+        }
+      
+         @keyframes loading{
+     from{
+         transform:translateX(0px);
+         transform:rotate(0deg);
+        
+
+     }
+     to{
+        transform:translateX(800px);
+        transform:rotate(360deg);
+     }
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="load">
+    
+    </div>
+   
+</body>
+</html>
