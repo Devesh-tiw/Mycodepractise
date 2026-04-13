@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .AIE {
+            height: 200px;
+            width: 200px;
+            border: 2px solid black;
+            margin: 100px;
+            background-color: yellow;
+   
+
+        }
+        .AIE:hover{
+                    animation-name:ani;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }   
+
+        @keyframes ani{
+           from{
+            tranform:rotate(0deg);
+           }
+           to{
+            transform:rotate(360deg);
+           }
+        }
+    </style>
 </head>
+
 <body>
-    
+    <h1> program property</h1>
+    <div class="AIE"></div>
 </body>
+
 </html>
