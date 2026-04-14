@@ -18,16 +18,28 @@
         .AIE:hover{
                     animation-name:ani;
             animation-duration: 2s;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
+            animation-iteration-count:infinite;
+ 
         }   
 
         @keyframes ani{
-           from{
-            tranform:rotate(0deg);
+           0%{
+            tranform:translateX(200px);
            }
-           to{
-            transform:rotate(360deg);
+           25%{
+            transform:translateY(200px);
+
+           }
+             50%{
+            transform:translateY(200px);
+
+           }
+           75%{
+            transform:translateX(200px);
+
+           }      
+           100%{
+            tranform:translateY(300px);
            }
         }
     </style>
