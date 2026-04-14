@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <style>
+        .image1{
+height:200px;
+width:200px;
+
+        }
+        .img{
+            height:200px;
+            width:200px;
+            animation-name:ani;
+animation-duration: 5s;
+animation-iteration-count: infinite;
+margin:200px;
+        }
+
+        @keyframes ani{
+0%{
+    transform:translate(0px);
+
+}
+25%{
+    transform:translate(250px);
+    
+}
+50%{
+    transform:translateY(250px);
+    
+}
+75%{
+    transform:translate(-250px);
+    
+}
+100%{
+    transform:translateY(-250px);
+    
+}
+        }
+    </style>
+</head>
+<body>
+    <div class="image1">
+        <img src="https://media.istockphoto.com/id/2159015651/photo/silhouette-of-a-person-on-the-shore-of-the-beach-contemplating-a-beautiful-sunset.jpg?s=612x612&w=0&k=20&c=eybIRVsxXo3gZlLNktV4gSeChsQBjAEUX4wO9JeCtgw=" class="img">
+    </div>
+</body>
+</html>
