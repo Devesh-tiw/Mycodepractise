@@ -31,4 +31,8 @@
 // }
 
 //DOM is started 
-alert('I am gini')
+
+// document.body.childNodes[3].innertext ='devesh';
+
+console.log(document.querySelector("h1"));
+
