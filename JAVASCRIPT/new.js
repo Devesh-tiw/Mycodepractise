@@ -34,5 +34,7 @@
 
 // document.body.childNodes[3].innertext ='devesh';
 
-console.log(document.querySelector("h1"));
+let div = document.querySelector("div");
+console.log(div.innerText);
+
 
