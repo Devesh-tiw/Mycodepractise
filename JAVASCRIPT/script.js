@@ -38,6 +38,7 @@ else{
 // i=i+2;
 // }
 
+
 // let userinput=prompt("Enter the  value");
 // let guess=25;
 // while(userinput!= guess){
@@ -100,12 +101,13 @@ else{
 //     return x*y;
 // }
 // mul(x,y);
-Fullname =prompt("Enter the name : ")
-function vowel(Fullname){
-    for(let i in Fullname){ 
-if (Fullname.charAt(i)=='a'||Fullname.charAt(i)=='e'||Fullname.charAt(i)=='i'||Fullname.charAt(i)=='o'||Fullname.charAt(i)=='u') {
-console.log(Fullname.charAt(i));
-}
-    }
-}
-vowel(Fullname);
+// Fullname =prompt("Enter the name : ")
+// function vowel(Fullname){
+//     for(let i in Fullname){ 
+// if (Fullname.charAt(i)=='a'||Fullname.charAt(i)=='e'||Fullname.charAt(i)=='i'||Fullname.charAt(i)=='o'||Fullname.charAt(i)=='u') {
+// console.log(Fullname.charAt(i));
+// }
+//     }
+// }
+// vowel(Fullname);
+
