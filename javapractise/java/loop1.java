@@ -3,6 +3,7 @@ public class loop1 {
        int i=0;
         do { 
             System.out.println("hello");
+            
             i++;
         } while (i<5);
     }
