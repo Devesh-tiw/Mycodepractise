@@ -8,17 +8,17 @@ display:flex;
 background-color:grey;
 height:80px;
 width:98vw;
-border:2px solid black;
 border-radius:20px;
-position:fixed;
+position:sticky;
 }
 #sidebar{
 background-color:grey;
 height:90vh;
 width:15vw;
-border:2px solid black;
+
 border-radius:20px;
-margin-top:85px;
+margin-top:5px;
+position:sticky;
 }
 .button{
 height:30px;
@@ -45,7 +45,8 @@ display:inline-grid;
   grid-template-columns: auto auto auto auto;
 height:90vh;
 width:82.7vw;
-border:2px solid black;
+position:sticky;
+
 }
 .coursearea{
 border-radius:20px;
@@ -65,9 +66,8 @@ background-image:linear-gradient(   135deg,blue,purple);
 }
 #footer{
 
-height:40px;
+height:80px;
 width:98vw;
-border:2px solid black;
 text-align:center;
 
 background-color:grey;
@@ -85,20 +85,20 @@ background-color:grey;
 <div id="middle" style="display:flex;">
 <div id="sidebar">
 
-<div class="button">
-<a href="/">home</a>
+<div class="button"name="but" onclick="but()">
+<a href="#">home</a>
 </div>
-<div class="button">
-<a href="/">Courses</a>
+<div class="button" name="but" onclick="but()">
+<a href="#">Courses</a>
 </div>
-<div class="button">
-<a href="/">Students</a>
+<div class="button" name="but" onclick="but()">
+<a href="#">Students</a>
 </div>
-<div class="button">
-<a href="/">Reports</a>
+<div class="button" name="but" onclick="but()">
+<a href="#">Reports</a>
 </div>
-<div class="button">
-<a href="/">Settings</a>
+<div class="button" name="but" onclick="but()">
+<a href="#">Settings</a>
 </div>
 </div>
 <div id="maincourse">
@@ -148,5 +148,13 @@ background-color:grey;
 <div id="footer">
 <h3>@copyright<h3>
 </div>
+<script >
+  function but() {
+    alert("This will not open, don't click unnecessarily");
+    
+  }
+
+</script>
 </body>
+
 </html>
