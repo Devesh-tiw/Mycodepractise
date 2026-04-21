@@ -11,6 +11,7 @@ try {
      c=a/b;
 } catch (ArithmeticException e) {
     System.out.println("Exception Handled "+e);
+    
 }
 System.out.println(c);
     }
