@@ -8,7 +8,8 @@ public class finalwordexceptionuse {
         } catch (NullPointerException e) {
             System.out.println("The Exception is handled: " + e);
         }
-
+finally{ 
         System.out.println("Program continues");
+        }
     }
 }
