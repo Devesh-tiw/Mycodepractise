@@ -10,3 +10,10 @@ else if (naming) {
 else {
     document.getElementById("head").innerHTML = "Enter your name";
 }
+
+   function add() {
+    let a = Number(document.getElementById("num1").value);
+    let b = Number(document.getElementById("num2").value);
+
+    document.getElementById("pic").innerHTML = a + b;
+}
