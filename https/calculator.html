@@ -6,22 +6,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
 </head>
+<style>
+    body{
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+    }
+    input, select {
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    #result {
+        margin-top: 20px;
+        font-size: 1.2em;
+    }
+</style>
 
 <body>
+    <h1 style="text-align:center">Simple Calculator</h1>
 
     <input type="number" id="num1" placeholder="Enter value of a">
     <input type="number" id="num2" placeholder="Enter value of b">
+<select id="operation" onchange="calculate()">
+    <option value="">Select Operation</option>
+    <option  value="add">ADDITION(+)</option>
+    <option value="sub">SUBTRACTION(-)</option>
+    <option  value="mul">MULTIPLICATION(*)</option>
+    <option value="div">DIVISON(/)</option>
+</select>
 
-    <button onclick="add()">Add</button>
 
     <p id="result"></p>
-
+<form>
+<button type="submit">Submit</button>
+</form>
     <script>
-        function add() {
+        function calculate() {
+            let op = document.getElementById("operation").value;
             let a = Number(document.getElementById("num1").value);
             let b = Number(document.getElementById("num2").value);
+            if(op==="add"){
+                add();
+            }
+            else if(op==="sub"){
+                sub();
+            }
+            else if(op==="mul"){
+                mul();
+            }
+            else if(op==="div"){
+                div();
+            }
+         
 
-            document.getElementById("result").innerText = "Sum = " + (a + b);
+            function add() {
+                document.getElementById("result").innerHTML = `The sum of ${a} and ${b} is ${a + b}`;
+            }
+            
+            function sub() {
+                document.getElementById("result").innerHTML = `The sub of ${a} and ${b} is ${a - b}`;
+            }
+            function mul() {
+                document.getElementById("result").innerHTML = `The multiplication of ${a} and ${b} is ${a * b}`;
+            }
+            function div() {
+                if (b == 0) {
+                    document.getElementById("result").innerHTML = "Division by zero is not allowed";
+                    return;
+                }
+                document.getElementById("result").innerHTML = `The division of ${a} and ${b} is ${a / b}`;
+            }
+            
         }
     </script>
 
