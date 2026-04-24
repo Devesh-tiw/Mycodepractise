@@ -17,3 +17,14 @@ else {
 
     document.getElementById("pic").innerHTML = a + b;
 }
+let divs = document.querySelectorAll(".box1");
+
+let idx = 1;
+
+for (let div of divs) {
+    div.innerHTML = `this is ${idx}`;
+    idx++;
+}
+document.getElementsByClassName("box1")[0].style.backgroundColor="blue";
+    
+

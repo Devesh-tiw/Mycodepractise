@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entry Master</title>
+</head>
+
+<body>
+    <input type="number" placeholder="Enter the age" id="age">
+    <p id="para"></p>
+    <button onclick="check()">Check Eligibility</button>
+
+    <script>
+        function check() {
+            let age = Number(document.getElementById("age").value);
+            if(!age){
+                document.getElementById("para").innerHTML = "Please enter a valid age";
+                return;
+            }
+
+            if (age >= 18) {
+                document.getElementById("para").innerHTML = "You are able to come to the party";
+            } else {
+                document.getElementById("para").innerHTML = "You are NOT allowed to come to the party";
+            }
+        }
+    </script>
+</body>
+
+</html>
