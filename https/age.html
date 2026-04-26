@@ -13,6 +13,7 @@
     <button onclick="check()">Check Eligibility</button>
 </body>
     <script>
+        
         function check() {
             let age = Number(document.getElementById("age").value);
             if(!age){
@@ -23,7 +24,7 @@
             if (age >= 18) {
                 document.getElementById("para").innerHTML = "You are able to come to the party";
             } else {
-                
+
                 document.getElementById("para").innerHTML = "You are NOT allowed to come to the party";
             }
         }
