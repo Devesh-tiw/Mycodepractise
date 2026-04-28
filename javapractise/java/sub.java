@@ -12,7 +12,7 @@ return;
     }
 
 public static void main(String[]args){
- sub obj = new sub();   // create object
+ sub obj = new sub();
         obj.subsequences(0, "abc", "");
 }
 }
