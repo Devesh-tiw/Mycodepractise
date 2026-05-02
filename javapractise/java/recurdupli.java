@@ -17,6 +17,6 @@ else{
     }
     public static void main(String[]args){
     recurdupli del=new recurdupli();
-    del.delup(0, "asseeenn", "");
+    del.delup(0, "avneet", "");
     }
 }
