@@ -6,6 +6,7 @@ public class subrev {
         }
         char currchar=str.charAt(idx);
         subsequences(str, idx+1, newstr+currchar);
+        
         subsequences(str, idx+1, newstr);
 
     }
