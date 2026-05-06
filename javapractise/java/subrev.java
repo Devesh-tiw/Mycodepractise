@@ -8,6 +8,7 @@ public class subrev {
         subsequences(str, idx+1, newstr+currchar);
         
         subsequences(str, idx+1, newstr);
+        
 
     }
     public static void main(String[]args){
