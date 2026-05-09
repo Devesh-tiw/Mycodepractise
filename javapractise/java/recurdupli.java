@@ -11,6 +11,7 @@ if(map[currentchar-'a']){
 }
 else{
     strnew+=currentchar;
+    
     map[currentchar-'a']=true;
     delup(idx+1, str1, strnew);
 }
