@@ -11,6 +11,7 @@ public class duplicate {
      }
      
      
+     
      if(flag==1){
 System.out.println("Duplicate is here");
      }
