@@ -11,6 +11,7 @@ public class recurstr{
             ba = ba + str.charAt(i);
         }
     }
+    
 
     System.out.println(ba + be);
 
