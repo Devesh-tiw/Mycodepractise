@@ -10,6 +10,7 @@ for(int i=0;i<n;i++){
 System.out.print(" ");
     }
     
+    
     for (int k=0;k<i;k++) {
         System.out.print(" *");
     }
