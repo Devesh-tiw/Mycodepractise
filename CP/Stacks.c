@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #define MAX 5
 
 int stack[MAX], top = -1;
@@ -64,7 +65,7 @@ int main()
         case 3:
             peek();
             break;
-            
+
         case 4:
             display();
             break;
