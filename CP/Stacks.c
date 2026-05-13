@@ -64,6 +64,7 @@ int main()
         case 3:
             peek();
             break;
+            
         case 4:
             display();
             break;
