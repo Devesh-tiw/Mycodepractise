@@ -50,7 +50,7 @@ int main()
     int ch;
     while (1)
     {
-        printf("\n1.Push 2.Pop 3.Peek 4.Display 5.Exit: ");
+        printf("\n1.Push 2.Pop 3.Peek 4.Display.0 5.Exit: ");
         scanf("%d", &ch);
         if (ch == 5)
             break;
