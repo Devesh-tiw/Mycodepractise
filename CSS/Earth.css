@@ -1,3 +1,9 @@
-#imagelogo{
+.imagelogo{
     text-align: center;
+    
+}
+.imagearea{
+   
+        width: 100px;
+        border-radius:50%;
 }
