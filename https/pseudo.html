@@ -1,54 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pseudo CSS</title>
     <style>
-a:link{
-color:blue;
-text-decoration:none;
-        }
-        
-a:visited{
-            color:rgb(0, 128, 2);
-text-decoration:underline;
-        }
-button:hover{
-    color:rgb(0, 0, 0);
-    text-decoration:underline;
-    background-image:linear-gradient(rgb(105, 255, 143),rgb(9, 26, 2));
-    font-weight: bold;
-    border: 5px solid black;
-}
 
+        a:link {
+            color: blue;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: rgb(0, 128, 2);
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            width: 300px;
+        }
+
+        li {
+            padding: 8px;
+            margin: 4px 0;
+            transition: background-color 0.3s;
+        }
+
+    
+        button:hover {
+            background-color: green;
+            color: white;
+            border: 2px solid darkgreen;
+      
+        }
+
+        input:required {
+            border: 2px solid red;
+        }
+
+
+        input[type="text"]:focus {
+            border: 2px solid blue;
+            outline: none;
+
+        }
+
+   
+        input[type="text"]:active {
+            border: 2px solid green;
+        }
+
+
+        li:first-child {
+            font-weight: bold;
+        }
+
+
+        li:last-child {
+            color: red;
+        }
+
+ 
+        li:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+   
+        input[type="checkbox"]:checked {
+            accent-color: green;
+        }
+
+        h1::before {
+            content: "🎓 ";
+        }
+
+
+        p::first-letter {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+
+        p::first-line {
+            font-style: italic;
+        }
+
+        li::after {
+            content: " ✔️";
+        }
+
+
+        ::selection {
+            background-color: yellow;
+            color: black;
+        }
+
+        li:hover {
+            background-color: #d1e7dd !important;
+           
+        }
+
+       
+        li:hover::before {
+            content: "👉 ";
+        }
     </style>
 </head>
+
 <body>
     <h1>Student Profile</h1>
-    <p>Welcome to the Student dashboard. This page  page shows basic student datails and navigation options .</p>
-    <ul>
-        <li>
-            Home
-            
-        </li>
-        <li>
-            Courses
-        </li>
-        <li>
-            Results
-        </li>
-        <li>
-            Contact
-        </li>
+    <p>welcome to the Student dashboard. This page shows basic student details and navigation options.</p>
 
+    <ul>
+        <li>Home</li>
+        <li>Courses</li>
+        <li>Results</li>
+        <li>Contact</li>
     </ul>
-    <input type="text" placeholder="Enter you Name " required >
-    <br/>
-    <input type="checkbox">Accepct Terms
-    <br>
+
+    <input type="text" placeholder="Enter your Name" required>
+    <br><br>
+
+    <label>
+        <input type="checkbox"> Accept Terms
+    </label>
+    <br><br>
+
     <button>Submit</button>
 
-    <a href="https://news.google.com/home?hl=en-IN&gl=IN&ceid=IN:en" style="margin:200px;" > <button>Google</button> </a>
+    <a href="https://news.google.com/home?hl=en-IN&gl=IN&ceid=IN:en" style="display:inline-block; margin-top: 50px;">
+        <button>Google</button>
+    </a>
 </body>
+
 </html>
