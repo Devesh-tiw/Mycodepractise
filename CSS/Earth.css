@@ -7,3 +7,6 @@
         width: 100px;
         border-radius:50%;
 }
+body{
+    background-image: linear-gradient(to bottom right, #fffce6, #dbc046, #f2ae0f, #f28c0f, #f24b0f);
+}
