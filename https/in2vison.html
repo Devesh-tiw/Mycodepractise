@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IN2VISION | Redefining Software Frontiers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --blur: blur(20px);
+            --mid-gray: #b0b0ae;
+            --white: #ffffff;
+            --black: #070706;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: white;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* ── CURSOR ── */
+        .cursor {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background 0.3s;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-ring {
+            position: fixed;
+            width: 38px;
+            height: 38px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s;
+        }
+
+        /* ── NAVBAR ── */
+        nav {
+            position: fixed;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: calc(100% - 32px);
+            max-width: 960px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 24px;
+            background: rgba(10, 10, 10, 0.65);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            transition: background 0.4s, box-shadow 0.4s, top 0.4s;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        nav.scrolled {
+            background: rgba(5, 5, 5, 0.88);
+            top: 10px;
+            box-shadow: 0 12px 60px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        }
+
+        .nav-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--mid-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--white);
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .nav-toggle.open span:nth-child(1) {
+            transform: rotate(45deg) translate(4.5px, 4.5px);
+        }
+
+        .nav-toggle.open span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-8px);
+        }
+
+        .nav-toggle.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(4.5px, -4.5px);
+        }
+
+        /* ── MOBILE MENU ── */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: min(80vw, 300px);
+            background: rgba(8, 8, 8, 0.95);
+            backdrop-filter: blur(40px);
+            border-left: 1px solid var(--glass-border);
+            padding: 100px 40px 40px;
+            transform: translateX(110%);
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        .mobile-menu a {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            transition: color 0.3s, padding-left 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--mid-gray);
+            padding-left: 8px;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s;
+            backdrop-filter: blur(4px);
+        }
+
+        .menu-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* ── HERO ── */
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Canvas BG */
+        #hero-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.55;
+        }
+
+        /* Dark overlay over canvas */
+        .hero-vignette {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background:
+                radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.72) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 28px;
+            padding: 0 24px;
+        }
+
+        /* Logo */
+        .hero-logo-img {
+            width: min(220px, 44vw);
+            height: min(220px, 44vw);
+            border-radius: 50%;
+            object-fit: cover;
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoGlow {
+            from {}
+
+            to {}
+        }
+
+        .hero-divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
+        }
+
+        .hero-eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--mid-gray);
+        }
+
+        /* Glass card style */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ── SCROLLBAR ── */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 2px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:768px) {
+            .nav-links {
+                display: none !important;
+            }
+
+            .nav-toggle {
+                display: flex !important;
+            }
+
+            nav {
+                display: grid;
+                grid-template-columns: 40px 1fr 40px;
+                align-items: center;
+            }
+
+            .nav-logo {
+                text-align: center;
+                grid-column: 2;
+            }
+
+            .nav-toggle {
+                grid-column: 3;
+                justify-self: end;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#mission">Vision</a>
+        <a href="#founders">Founders</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+        <a href="#hero" class="nav-logo">IN2VISION</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#mission">Vision</a></li>
+            <li><a href="#founders">Founders</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ══ HERO ══ -->
+    <section id="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-vignette"></div>
+
+        <div class="hero-content">
+            <!-- White Logo -->
+            <img id="hero-logo" src="in2logo.png" alt="In2Vision Logo" class="hero-logo-img" style="opacity:0;">
+
+            <div class="hero-divider" id="hero-divider" style="opacity:0;transform:scaleX(0);"></div>
+
+            <p class="hero-eyebrow" id="hero-eyebrow" style="opacity:0;">Redefining Software Frontiers</p>
+
+            <h1 id="hero-text" class="text-5xl md:text-8xl font-bold tracking-tighter" style="opacity:0;">
+                PUSHING <br><span style="color:#555;">FRONTIERS.</span>
+            </h1>
+            <p id="hero-sub" class="max-w-md text-zinc-400 text-sm md:text-base leading-relaxed" style="opacity:0;">
+                Architecting groundbreaking and disruptive software technologies to accelerate global innovation.
+            </p>
+
+            <div id="hero-cta"
+                style="opacity:0;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
+                <a href="#about"
+                    class="text-xs font-semibold tracking-widest uppercase px-7 py-3 rounded-full bg-white text-black hover:bg-zinc-200 transition-colors">Discover
+                    More</a>
+                <a href="#contact"
+                    class="text-xs font-semibold tracking-widest uppercase px-7 py-3 rounded-full border border-white/20 text-white hover:border-white/50 transition-colors"
+                    style="backdrop-filter:blur(12px);">Get in Touch</a>
+            </div>
+        </div>
+
+        <!-- Scroll hint -->
+        <div style="position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2;opacity:0.5;"
+            id="scroll-hint">
+            <div
+                style="width:1px;height:48px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,0.5));animation:spulse 2s ease-in-out infinite;">
+            </div>
+            <span style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:#777;">Scroll</span>
+        </div>
+    </section>
+    <style>
+        @keyframes spulse {
+
+            0%,
+            100% {
+                opacity: 0.3
+            }
+
+            50% {
+                opacity: 1
+            }
+        }
+    </style>
+
+    <!-- ══ ABOUT ══ -->
+    <section id="about" class="py-32 px-6 max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+        <div class="glass p-8 rounded-[2rem] reveal">
+            <i data-lucide="layers" class="mb-4 text-zinc-400"></i>
+            <h3 class="text-2xl font-bold mb-4">The Parent Company</h3>
+            <p class="text-zinc-400 leading-relaxed">IN2VISION stands as a technology-first parent company, dedicated to
+                incubating software that challenges the status quo and transforms digital landscapes.</p>
+        </div>
+        <div id="mission" class="glass p-8 rounded-[2rem] reveal">
+            <i data-lucide="target" class="mb-4 text-zinc-400"></i>
+            <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+            <p class="text-zinc-400 leading-relaxed">To act as the primary driver for innovation by building
+                foundational
+                products that empower humanity to reach its highest technical potential.</p>
+        </div>
+        <div class="glass p-8 rounded-[2rem] reveal">
+            <i data-lucide="eye" class="mb-4 text-zinc-400"></i>
+            <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
+            <p class="text-zinc-400 leading-relaxed">To create an undeniable impact on the world by accelerating the
+                rate of
+                innovation and expanding the boundaries of software possibility.</p>
+        </div>
+    </section>
+
+    <!-- ══ FOUNDERS ══ -->
+    <section id="founders" class="py-32 px-6 bg-white text-black rounded-t-[3rem]">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-16 tracking-tight text-center md:text-left">The Founding Members</h2>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="flex flex-col gap-6 items-center md:items-start reveal">
+                    <div
+                        class="w-full h-64 bg-zinc-200 rounded-3xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+                        <a href="https://www.linkedin.com/in/chandra-choodan-t-a-9757bb267/">
+                            <img src="./ceo.jpeg" alt="Founder" class="object-cover w-full h-full">
+                        </a>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold">Chandra Choodan T.A</h4>
+                        <p class="text-zinc-500">Founder and CEO</p>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-6 items-center md:items-start reveal">
+                    <div
+                        class="w-full h-64 bg-zinc-200 rounded-3xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+                        <a href="https://www.linkedin.com/in/its-aditya-an1l/">
+                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQEhu56k1nHEQw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1729180502491?e=1780531200&v=beta&t=eaNuIvfZ74YetlRI1fYitCtEfbKUwBFz13oTt8Mte1A"
+                                alt="Founder" class="object-cover w-full h-full">
+                        </a>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold">Aditya Anil</h4>
+                        <p class="text-zinc-500">Founder and CTO</p>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-6 items-center md:items-start reveal">
+                    <div
+                        class="w-full h-64 bg-zinc-200 rounded-3xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+                        <a href="https://www.linkedin.com/in/abhilash-ks-9a4b00228/">
+                            <img src="./cfo.jpeg" alt="Founder" class="object-cover w-full h-full">
+                        </a>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold">Abhilash Suresh</h4>
+                        <p class="text-zinc-500">Founder and CFO</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ CONTACT ══ -->
+    <section id="contact" class="py-32 px-6 glass m-6 rounded-[3rem] reveal">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8">Collaborate with IN2VISION</h2>
+            <form id="contact-form" action="https://formspree.io/f/xojrzpyg" method="POST"
+                class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input type="text" name="name" required placeholder="Name"
+                    class="bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-white/40">
+                <input type="email" name="email" required placeholder="Email"
+                    class="bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-white/40">
+                <textarea name="message" required placeholder="Tell us about your breakthrough project"
+                    class="md:col-span-2 bg-white/5 border border-white/10 p-4 rounded-xl h-32 outline-none focus:border-white/40"></textarea>
+                <button type="submit" id="submit-btn"
+                    class="md:col-span-2 bg-white text-black font-bold p-4 rounded-xl hover:bg-zinc-200 transition-colors uppercase tracking-widest text-sm">Initiate
+                    Contact</button>
+            </form>
+            <div id="form-status" class="hidden mt-6 text-zinc-400 font-medium"></div>
+        </div>
+    </section>
+
+    <!-- ══ FOOTER ══ -->
+    <footer class="py-12 border-t border-white/5 text-center text-zinc-500 text-sm">
+        <div class="mb-4">
+            <img src="in2logo.png" alt="In2Vision"
+                style="width:60px;height:60px;border-radius:50%;object-fit:cover;opacity:0.4;margin:0 auto 12px;">
+        </div>
+        <p>&copy; 2026 IN2VISION. Accelerating the Future.</p>
+    </footer>
+
+    <script>
+        // ══ LOGO DATA URI ══
+        const LOGO_SRC = 'data:image/jpeg;base64,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';
+        document.querySelectorAll('img[src="LOGO_PLACEHOLDER"]').forEach(img => img.src = LOGO_SRC);
+
+        lucide.createIcons();
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+        // ── HERO CANVAS (Innovation / Neural Network BG) ──
+        (function initCanvas() {
+            const canvas = document.getElementById('hero-canvas');
+            const ctx = canvas.getContext('2d');
+            let W, H, nodes, animId;
+
+            function resize() {
+                W = canvas.width = canvas.offsetWidth;
+                H = canvas.height = canvas.offsetHeight;
+            }
+            resize();
+            window.addEventListener('resize', () => { resize(); buildNodes(); });
+
+            // Node class
+            class Node {
+                constructor() { this.reset(); }
+                reset() {
+                    this.x = Math.random() * W;
+                    this.y = Math.random() * H;
+                    this.vx = (Math.random() - 0.5) * 0.35;
+                    this.vy = (Math.random() - 0.5) * 0.35;
+                    this.r = Math.random() * 2 + 1;
+                    this.alpha = Math.random() * 0.5 + 0.15;
+                }
+                update() {
+                    this.x += this.vx; this.y += this.vy;
+                    if (this.x < -20 || this.x > W + 20 || this.y < -20 || this.y > H + 20) this.reset();
+                }
+            }
+
+            function buildNodes() {
+                const count = Math.min(Math.floor(W * H / 12000), 80);
+                nodes = Array.from({ length: count }, () => new Node());
+            }
+            buildNodes();
+
+            const LINK_DIST = 150;
+            const LINK_DIST_SQ = LINK_DIST * LINK_DIST;
+
+            function draw() {
+                ctx.clearRect(0, 0, W, H);
+
+                // Draw links
+                for (let i = 0; i < nodes.length; i++) {
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const dx = nodes[i].x - nodes[j].x;
+                        const dy = nodes[i].y - nodes[j].y;
+                        const distSq = dx * dx + dy * dy;
+                        if (distSq < LINK_DIST_SQ) {
+                            const alpha = (1 - distSq / LINK_DIST_SQ) * 0.25;
+                            ctx.beginPath();
+                            ctx.moveTo(nodes[i].x, nodes[i].y);
+                            ctx.lineTo(nodes[j].x, nodes[j].y);
+                            ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
+                            ctx.lineWidth = 0.7;
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                // Draw nodes
+                for (const n of nodes) {
+                    n.update();
+                    ctx.beginPath();
+                    ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255,255,255,${n.alpha})`;
+                    ctx.fill();
+                }
+
+                animId = requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+        // ── HERO ANIMATIONS (staggered entrance) ──
+        const heroTl = gsap.timeline({ delay: 0.3 });
+        heroTl
+            .to('#hero-logo', { opacity: 1, y: 0, duration: 1.1, ease: 'power3.out', from: { y: 30 } })
+            .to('#hero-divider', { opacity: 1, scaleX: 1, duration: 0.7, ease: 'power2.out', transformOrigin: 'center' }, '-=0.4')
+            .to('#hero-eyebrow', { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', from: { y: 10 } }, '-=0.3')
+            .to('#hero-text', { opacity: 1, y: 0, duration: 1, ease: 'power3.out', from: { y: 40 } }, '-=0.4')
+            .to('#hero-sub', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', from: { y: 20 } }, '-=0.5')
+            .to('#hero-cta', { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', from: { y: 15 } }, '-=0.4');
+
+        // ── CUSTOM CURSOR ──
+        const cursor = document.getElementById('cursor');
+        const ring = document.getElementById('cursorRing');
+        let mx = 0, my = 0, rx = 0, ry = 0;
+        document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+        (function animCursor() {
+            rx += (mx - rx) * 0.12;
+            ry += (my - ry) * 0.12;
+            cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+            ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+            requestAnimationFrame(animCursor);
+        })();
+        document.querySelectorAll('a, button, .glass').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.width = '20px'; cursor.style.height = '20px';
+                ring.style.width = '54px'; ring.style.height = '54px';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.width = '10px'; cursor.style.height = '10px';
+                ring.style.width = '38px'; ring.style.height = '38px';
+            });
+        });
+
+        // ── NAVBAR ──
+        const navbar = document.getElementById('navbar');
+        const navToggle = document.getElementById('navToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('menuOverlay');
+
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+
+        function toggleMenu() {
+            navToggle.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+            overlay.classList.toggle('open');
+        }
+        navToggle.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // ── SMOOTH SCROLL (fixed jitter) ──
+        // Kill any existing scroll tween before starting a new one
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', e => {
+                const href = anchor.getAttribute('href');
+                if (!href || href === '#') return;
+                const target = document.querySelector(href);
+                if (!target) return;
+                e.preventDefault();
+                if (mobileMenu.classList.contains('open')) toggleMenu();
+
+                // Kill previous scroll tween to prevent jitter
+                gsap.killTweensOf(window);
+
+                // Offset for fixed navbar
+                const navH = navbar.offsetHeight + 18;
+                const targetY = target.getBoundingClientRect().top + window.scrollY - navH;
+
+                gsap.to(window, {
+                    scrollTo: { y: targetY, autoKill: false },
+                    duration: 1,
+                    ease: 'power2.inOut'
+                });
+            });
+        });
+
+        // ── SCROLL REVEAL ──
+        document.querySelectorAll('.reveal').forEach(el => {
+            gsap.from(el, {
+                scrollTrigger: { trigger: el, start: 'top 87%', toggleActions: 'play none none none' },
+                opacity: 0, y: 40, duration: 0.9, ease: 'power3.out'
+            });
+        });
+
+        // ── FORM ──
+        const contactForm = document.getElementById('contact-form');
+        const statusDiv = document.getElementById('form-status');
+        const submitBtn = document.getElementById('submit-btn');
+        contactForm.addEventListener('submit', async e => {
+            e.preventDefault();
+            submitBtn.disabled = true; submitBtn.innerText = 'SENDING...';
+            try {
+                const res = await fetch(contactForm.action, {
+                    method: 'POST', body: new FormData(contactForm), headers: { Accept: 'application/json' }
+                });
+                if (res.ok) {
+                    statusDiv.innerText = 'MISSION RECEIVED. WE WILL REACH OUT SHORTLY.';
+                    contactForm.reset();
+                } else throw new Error();
+            } catch {
+                statusDiv.innerText = 'TRANSMISSION ERROR. PLEASE TRY AGAIN.';
+            }
+            statusDiv.classList.remove('hidden');
+            submitBtn.innerText = 'INITIATE CONTACT'; submitBtn.disabled = false;
+        });
+    </script>
+</body>
+
+</html>
