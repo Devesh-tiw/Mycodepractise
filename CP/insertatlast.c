@@ -9,7 +9,7 @@ struct node *head=NULL;
 void createnode(){
 struct node *newnode=(struct node*)malloc(sizeof(struct node));
 if(!newnode){
-    printf("memory allocairon is niot done");
+    printf("memory allocation is not done");
     return;
 }
 int data;
