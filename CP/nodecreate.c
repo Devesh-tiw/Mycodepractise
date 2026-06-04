@@ -4,42 +4,37 @@
 struct node {
     int data;
     struct node *next;
-}; // Added missing semicolon
+}; 
 
-// Declare head as a global variable so createnode can modify it
+
 struct node* head = NULL; 
 
-void createnode() { // Added parentheses
+void createnode() { 
     struct node* newnode = (struct node*)malloc(sizeof(struct node));
     
-    // 1. Check if memory allocation failed immediately
+    
     if (!newnode) {
         printf("Memory allocation failed!\n");
-        return; // Exit the function if malloc failed
+        return; 
     }
     
     int data;
     printf("Enter data: ");
-    scanf("%d", &data); // Added missing '&'
-    
-    // 2. Assign values to the new block
+    scanf("%d", &data);
     newnode->data = data;
     
-    // 3. Insert at the beginning
-    if (head == NULL) { // Fixed spelling to 'else if' / 'if' structure
+    if (head == NULL) { 
         newnode->next = NULL;
         head = newnode;
     } else {
-        newnode->next = head; // Point new node to the old first node
-        head = newnode;       // Make head point to our new node
+        newnode->next = head;
+        head = newnode;    
     }
 }
 
 int main() {
-    createnode(); // Inserts first node (e.g., 10)
-    createnode(); // Inserts second node at the beginning (e.g., 20)
-    
-    // Let's print the list to see the order!
+    createnode(); 
+    createnode();
     struct node* temp = head;
     printf("Linked List: ");
     while (temp != NULL) {
