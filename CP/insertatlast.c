@@ -35,6 +35,7 @@ void printing(){
     while(temp!=NULL){
         printf("%d->",temp->data);
         temp = temp->next;
+       
     }
     printf("->NULL");
 }
@@ -44,8 +45,9 @@ int main(){
     printf("ENter the number of nodes you want to add here :");
     scanf("%d",&ni);
     int i=0;
-    while(i==ni){
+    while(i<ni){
  createnode();
+  i++;
     }
    
     printing();
