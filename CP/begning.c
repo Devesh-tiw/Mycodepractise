@@ -50,7 +50,7 @@ void printing() {
 }
 
 int main() {
-    createnode(); // Inserts first node
+    createnode(); 
     createnode(); // Inserts second node at the beginning
     printing();   // Prints the entire chain
     
