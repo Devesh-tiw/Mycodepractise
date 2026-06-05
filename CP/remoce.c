@@ -79,6 +79,32 @@ void insertsomewhere(int idx, int value){
     nn->next = temp->next; // 1. Link new node to the rest of the list
     temp->next = nn;       // 2. Link temp to the new node
 }
+void removed(){
+    
+    struct node *temp = head;
+    if(head==NULL){
+        printf("here is nothing to print");
+    }
+    else{
+        head=temp->next;
+    }
+}
+void removedlast(){
+    
+    struct node *temp = head;
+    struct node *temp2 = NULL;
+    if(head==NULL){
+        printf("here is nothing to print");
+    }
+    else{
+        while(temp->next!=NULL){
+            temp2=temp;
+             temp=temp->next;
+
+        }
+      temp2->next=NULL;
+    }
+}
 
 int main(){
     createnode(50); // Index 4
@@ -96,7 +122,12 @@ int main(){
     insertsomewhere(3, 6);
     
     printf("\nAfter insertion:\n");
-    print(); // Expected: 10 -> 20 -> 30 -> 6 -> 40 -> 50 -> NULL
-    
+    print(); 
+    removed();
+     printf("\nAfter deletion from first:\n");
+    print(); 
+    removedlast();
+     printf("\nAfter deletion from last:\n");
+    print(); 
     return 0;
 }
