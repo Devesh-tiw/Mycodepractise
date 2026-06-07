@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <form onsubmit="return validateForm()">
+        Phone: <input type="text" id="phone" required><br>
+        Password: <input type="password" id="pwd" onkeyup="checkStrength()">
+        <button type="button" onclick="togglePwd()">Show/Hide</button><br>
+        <small id="pwdMsg"></small><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function togglePwd() {
+            let pwdField = document.getElementById("pwd");
+            pwdField.type = pwdField.type === "password" ? "text" : "password";
+        }
+
+        function checkStrength() {
+            let val = document.getElementById("pwd").value;
+            let msg = document.getElementById("pwdMsg");
+            if (val.length < 6) msg.innerHTML = "Weak";
+            else if (val.match(/[A-Z]/) && val.match(/[0-9]/)) msg.innerHTML = "Strong";
+            else msg.innerHTML = "Moderate";
+        }
+
+        function validateForm() {
+            let phone = document.getElementById("phone").value;
+            if (!/^\d{10}$/.test(phone)) {
+                alert("Phone number must be exactly 10 digits.");
+                return false;
+            }
+            return confirm("Are you sure you want to submit?");
+        }
+    </script>
+</body>
+
+</html>
