@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <input type="text" id="numInput" placeholder="Enter a number">
+  <button onclick="addElement()">Add to Array</button>
+  <p id="arrayDisplay">Array: []</p>
+  <p id="sumDisplay">Sum: 0</p>
+
+  <script>
+    let dynamicArr = [];
+    let currentSum = 0;
+
+    function addElement() {
+      let num = parseFloat(document.getElementById("numInput").value);
+      if (isNaN(num)) {
+        alert("Please enter a valid number.");
+        return;
+      }
+      dynamicArr.push(num);
+      currentSum += num;
+      document.getElementById("arrayDisplay").innerHTML = "Array: [" + dynamicArr.join(", ") + "]";
+      document.getElementById("sumDisplay").innerHTML = "Sum: " + currentSum;
+      document.getElementById("numInput").value = ''; 
+    }
+  </script>
+</body>
+</html>
