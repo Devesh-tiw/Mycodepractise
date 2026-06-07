@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #e0f7fa; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px;">
+    <h1 style="color: #00796b;">Text Analyzer</h1>
+    <p style="color: #004d40;">Open the console to see the analysis results.</p>
+    
+</body>
+<script>
+    let str = prompt("Enter a string:");
+    let letters = str.replace(/[^a-zA-Z]/g, '');
+    let words = str.trim().split(/\s+/).filter(w => w.length > 0);
+    let vowels = letters.match(/[aeiou]/gi) || [];
+    let consonants = letters.match(/[^aeiou]/gi) || [];
+
+    let freq = {};
+    for (let char of letters.toLowerCase()) {
+        freq[char] = (freq[char] || 0) + 1;
+    }
+
+    console.log(`Letters: ${letters.length}, Words: ${words.length}`);
+    console.log(`Vowels: ${vowels.length}, Consonants: ${consonants.length}`);
+    console.log("Frequency:", freq);</script>
+</html>

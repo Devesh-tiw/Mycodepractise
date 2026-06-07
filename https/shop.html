@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    Item: <input type="text" id="item">
+    Price: <input type="number" id="price">
+    <button onclick="addToCart()">Add to Cart</button>
+    <div id="cartSummary"></div>
+
+    <script>
+        let cart = [];
+        function addToCart() {
+            let item = document.getElementById("item").value;
+            let price = parseFloat(document.getElementById("price").value);
+            if (item && !isNaN(price)) {
+                cart.push({ item, price });
+                renderCart();
+            }
+        }
+        function remove(index) {
+            cart.splice(index, 1);
+            renderCart();
+        }
+        function renderCart() {
+            let html = "<h3>Cart Summary</h3><ul>";
+            let total = 0;
+            cart.forEach((c, i) => {
+                html += `<li>${c.item} - $${c.price} <button onclick="remove(${i})">Remove</button></li>`;
+                total += c.price;
+            });
+            document.getElementById("cartSummary").innerHTML = html + `</ul><b>Total: $${total}</b>`;
+        }
+    </script>
+</body>
+
+</html>
