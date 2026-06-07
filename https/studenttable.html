@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    Name: <input type="text" id="sName">
+    Roll No: <input type="text" id="sRoll">
+    Marks: <input type="number" id="sMarks">
+    <button onclick="addStudent()">Add Student</button>
+
+    <table border="1" style="margin-top:20px; width:100%;">
+        <tr>
+            <th>Name</th>
+            <th>Roll Number</th>
+            <th>Total Marks</th>
+        </tr>
+        <tbody id="studentTableBody"></tbody>
+    </table>
+
+    <script>
+        function addStudent() {
+            let name = document.getElementById("sName").value;
+            let roll = document.getElementById("sRoll").value;
+            let marks = document.getElementById("sMarks").value;
+
+            if (name && roll && marks) {
+                let row = document.getElementById("studentTableBody").insertRow();
+                row.insertCell(0).innerHTML = name;
+                row.insertCell(1).innerHTML = roll;
+                row.insertCell(2).innerHTML = marks;
+            } else {
+                alert("Please fill all fields.");
+            }
+        }
+    </script>
+</body>
+
+</html>
