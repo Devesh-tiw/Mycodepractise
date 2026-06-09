@@ -12,7 +12,7 @@ public class arithmatic {
 c=a/b;
       }
       catch(ArithmeticException e){
-System.out.println("Arithmetic Exception is resolved "+e);
+System.out.println("Arithmetic Exception is resolved 5"+e);
       }
 
     }
