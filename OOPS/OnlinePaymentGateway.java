@@ -24,14 +24,13 @@ class UPI implements Payment {
 
 class CreditCard implements Payment {
     String cardNumber;
-
+    
     public CreditCard(String cardNumber) {
         this.cardNumber = cardNumber;
     }
 
     public void pay(double amount) {
-        System.out.println("Processing Credit Card Payment of $" + amount + " using card ending in "
-                + cardNumber.substring(cardNumber.length() - 4));
+        System.out.println("Processing Credit Card Payment of $" + amount + " using card ending in "+ cardNumber.substring(cardNumber.length() - 4));
     }
 
     public void refund(double amount) {
